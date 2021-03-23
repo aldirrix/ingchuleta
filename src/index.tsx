@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Blog from './components/Blog';
+import Router from './components/Router';
 
-ReactDOM.render(<Blog />, document.getElementById('root'));
+ReactDOM.render(
+  <Router />,
+  document.getElementById('root'),
+);

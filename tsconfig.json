@@ -6,6 +6,9 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "react"
+    "jsx": "react",
+    "types": [
+      "facebook-js-sdk"
+    ]
   }
 }

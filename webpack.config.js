@@ -18,6 +18,12 @@ module.exports = {
         test: /\.md$/i,
         use: 'raw-loader',
       },
+      {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: 'url-loader',
+        },
+      },
     ],
   },
   resolve: {
@@ -26,9 +32,11 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
   plugins: [htmlPlugin],
   devServer: {
+    historyApiFallback: true,
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 8080,

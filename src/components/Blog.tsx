@@ -13,9 +13,14 @@ import FeaturedPost from './FeaturedPost';
 import Main from './Main';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
-import post1 from '../posts/blog-post.1.md';
-import post2 from '../posts/blog-post.2.md';
-import post3 from '../posts/blog-post.3.md';
+import post1 from '../public/blog-post.1.md';
+import post2 from '../public/blog-post.2.md';
+import post3 from '../public/blog-post.3.md';
+import featuredLogo from '../public/pixelated_background_logo.png';
+
+interface BlogProps {
+  facebook: fb.FacebookStatic;
+}
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -28,14 +33,14 @@ const sections = [
   { title: 'Design', url: '#' },
   { title: 'Culture', url: '#' },
   { title: 'Business', url: '#' },
-  { title: 'Politics', url: '#' },
+  { title: 'TOS', url: '/privacy' },
 ];
 
 const mainFeaturedPost = {
   title: 'Title of a longer featured blog post',
   description:
     'Multiple lines of text that form the lede, informing new readers quickly and efficiently about whats most interesting in this posts contents.',
-  image: 'https://source.unsplash.com/random',
+  image: featuredLogo,
   imageText: 'main image description',
   linkText: 'Continue reading…',
 };
@@ -85,14 +90,22 @@ const sidebar = {
   ],
 };
 
-export default function Blog() {
+export default function Blog({ facebook }: BlogProps) {
   const classes = useStyles();
+  /* facebook.api(
+    '/100326168278745/videos',
+    (response) => {
+      if (response) {
+        console.log(response);
+      }
+    },
+  ); */
 
   return (
     <>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="Ing Chuleta" sections={sections} />
+        <Header sections={sections} />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>

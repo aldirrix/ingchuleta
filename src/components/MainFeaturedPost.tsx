@@ -51,7 +51,7 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
   return (
     <Paper
       className={classes.mainFeaturedPost}
-      style={{ backgroundImage: `url(${post.image})` }}
+      style={{ backgroundImage: `url(${post.image})`, backgroundRepeat: 'repeat', backgroundSize: 'contain' }}
     >
       {/* Increase the priority of the hero background image */}
       <img style={{ display: 'none' }} src={post.image} alt={post.imageText} />
